@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+
+# Large data files - see docs/data_sources.md for download instructions
+data/raw/
+data/processed_dataco_clean.csv
+
+# SQLite database - regenerate via python/20_load_to_sqlite.py
+sql/*.db
+
+# Power BI files can be large - add .pbix here once Phase 7 starts
+powerbi/*.pbix

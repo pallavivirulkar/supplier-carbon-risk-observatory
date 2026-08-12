@@ -1,0 +1,58 @@
+import pandas as pd
+
+COUNTRY_MAP = {
+    "Afganistán": "AFG", "Albania": "ALB", "Alemania": "DEU", "Angola": "AGO",
+    "Arabia Saudí": "SAU", "Argelia": "DZA", "Argentina": "ARG", "Armenia": "ARM",
+    "Australia": "AUS", "Austria": "AUT", "Azerbaiyán": "AZE", "Bangladés": "BGD",
+    "Barbados": "BRB", "Baréin": "BHR", "Belice": "BLZ", "Benín": "BEN",
+    "Bielorrusia": "BLR", "Bolivia": "BOL", "Bosnia y Herzegovina": "BIH",
+    "Botsuana": "BWA", "Brasil": "BRA", "Bulgaria": "BGR", "Burkina Faso": "BFA",
+    "Burundi": "BDI", "Bután": "BTN", "Bélgica": "BEL", "Camboya": "KHM",
+    "Camerún": "CMR", "Canada": "CAN", "Chad": "TCD", "Chile": "CHL",
+    "China": "CHN", "Chipre": "CYP", "Colombia": "COL", "Corea del Sur": "KOR",
+    "Costa Rica": "CRI", "Costa de Marfil": "CIV", "Croacia": "HRV", "Cuba": "CUB",
+    "Dinamarca": "DNK", "Ecuador": "ECU", "Egipto": "EGY", "El Salvador": "SLV",
+    "Emiratos Árabes Unidos": "ARE", "Eritrea": "ERI", "Eslovaquia": "SVK",
+    "Eslovenia": "SVN", "España": "ESP", "Estados Unidos": "USA", "Estonia": "EST",
+    "Etiopía": "ETH", "Filipinas": "PHL", "Finlandia": "FIN", "Francia": "FRA",
+    "Gabón": "GAB", "Georgia": "GEO", "Ghana": "GHA", "Grecia": "GRC",
+    "Guadalupe": "GLP", "Guatemala": "GTM", "Guayana Francesa": "GUF",
+    "Guinea": "GIN", "Guinea Ecuatorial": "GNQ", "Guinea-Bissau": "GNB",
+    "Guyana": "GUY", "Haití": "HTI", "Honduras": "HND", "Hong Kong": "HKG",
+    "Hungría": "HUN", "India": "IND", "Indonesia": "IDN", "Irak": "IRQ",
+    "Irlanda": "IRL", "Irán": "IRN", "Israel": "ISR", "Italia": "ITA",
+    "Jamaica": "JAM", "Japón": "JPN", "Jordania": "JOR", "Kazajistán": "KAZ",
+    "Kenia": "KEN", "Kirguistán": "KGZ", "Kuwait": "KWT", "Laos": "LAO",
+    "Lesoto": "LSO", "Liberia": "LBR", "Libia": "LBY", "Lituania": "LTU",
+    "Luxemburgo": "LUX", "Líbano": "LBN", "Macedonia": "MKD", "Madagascar": "MDG",
+    "Malasia": "MYS", "Mali": "MLI", "Marruecos": "MAR", "Martinica": "MTQ",
+    "Mauritania": "MRT", "Moldavia": "MDA", "Mongolia": "MNG", "Montenegro": "MNE",
+    "Mozambique": "MOZ", "Myanmar (Birmania)": "MMR", "México": "MEX",
+    "Namibia": "NAM", "Nepal": "NPL", "Nicaragua": "NIC", "Nigeria": "NGA",
+    "Noruega": "NOR", "Nueva Zelanda": "NZL", "Níger": "NER", "Omán": "OMN",
+    "Pakistán": "PAK", "Panamá": "PAN", "Papúa Nueva Guinea": "PNG",
+    "Paraguay": "PRY", "Países Bajos": "NLD", "Perú": "PER", "Polonia": "POL",
+    "Portugal": "PRT", "Qatar": "QAT", "Reino Unido": "GBR",
+    "República Centroafricana": "CAF", "República Checa": "CZE",
+    "República Democrática del Congo": "COD", "República Dominicana": "DOM",
+    "República de Gambia": "GMB", "República del Congo": "COG", "Ruanda": "RWA",
+    "Rumania": "ROU", "Rusia": "RUS", "Senegal": "SEN", "Serbia": "SRB",
+    "Sierra Leona": "SLE", "Singapur": "SGP", "Siria": "SYR", "Somalia": "SOM",
+    "Sri Lanka": "LKA", "Suazilandia": "SWZ", "SudAfrica": "ZAF", "Sudán": "SDN",
+    "Sudán del Sur": "SSD", "Suecia": "SWE", "Suiza": "CHE", "Surinam": "SUR",
+    "Sáhara Occidental": "ESH", "Tailandia": "THA", "Taiwán": "TWN",
+    "Tanzania": "TZA", "Tayikistán": "TJK", "Togo": "TGO",
+    "Trinidad y Tobago": "TTO", "Turkmenistán": "TKM", "Turquía": "TUR",
+    "Túnez": "TUN", "Ucrania": "UKR", "Uganda": "UGA", "Uruguay": "URY",
+    "Uzbekistán": "UZB", "Venezuela": "VEN", "Vietnam": "VNM", "Yemen": "YEM",
+    "Yibuti": "DJI", "Zambia": "ZMB", "Zimbabue": "ZWE",
+    "EE. UU.": "USA", "Puerto Rico": "PRI",
+}
+
+mapping_df = pd.DataFrame(
+    list(COUNTRY_MAP.items()), columns=["raw_country_name", "iso3"]
+)
+mapping_df.to_csv("../data/reference_country_mapping.csv", index=False)
+
+print("Mapping table shape:", mapping_df.shape)
+print(mapping_df.head())
